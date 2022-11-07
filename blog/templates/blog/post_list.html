@@ -10,23 +10,25 @@
     <div>
         <h1>Witam na stronie bloga!</h1>
         <h2>Blog o programowaniu</h2>
-        <h3>Autor: Strefa Kursów</h3>
+        <h3>Autor: Multichoice</h3>
         <h4>Wszelkie prawa zastrzeżone</h4>
     </div>
 
-    <div>
-        <p>To jest akapit</p>
-        <em>To jest wyróżniony tekst</em><br>
-        <strong>Tu jest pogróbiony tekst</strong><br>
-        <a href="https://strefakursow.pl">LINK</a>
-    </div>
+    {% comment "Komentarz autora" %}
+    <p>Tutaj lista postów</p>
+    {% endcomment %}
+
+    {% for post in posts %}
 
     <div>
-        <ul>
-            <li>Elementy listy</li>
-            <li>Elementy listy</li>
-            <li>Elementy listy</li>
-        </ul>
+        <p>opublikowany: {{ post.published_date }}</p>
+        <h2><a href="">{{ post.title }}</a></h2>
+        <em>{{ post.text|linebreaksbr }}</em>
+    </div>
+
+    {% endfor %}
+
+    <div>
     </div>
 
 </body>
